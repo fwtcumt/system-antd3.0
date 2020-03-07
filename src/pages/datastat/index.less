@@ -1,0 +1,75 @@
+.page-stat {
+  padding: 4px;
+  .stat-tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    .stat-tab {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+      height: 153px;
+      color: #fff;
+      margin-right: 10px;
+      &:last-of-type { margin-right: 0; }
+      &.tab1 { background-color: #3cdb86; }
+      &.tab2 { background-color: #4380f4; }
+      &.tab3 { background-color: #073145; }
+      &.tab4 { background-color: #f66833; }
+      .stat-title {
+        font-size: 12px;
+      }
+      .stat-number {
+        font-size: 30px;
+      }
+    }
+  }
+
+  .stat-cards {
+    display: flex;
+    margin-bottom: 10px;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+    .card-l {
+      flex: 1;
+      margin-right: 10px;
+    }
+    .card-r {
+      width: 36%;
+      max-width: 500px;
+    }
+    .ant-card-extra {
+      .anticon-more {
+        transform: scale(1.5);
+      }
+    }
+    .card-body {
+      height: 190px;
+      overflow: auto;
+      #c1, #c2, #c3 {
+        height: 100%;
+        overflow: hidden;
+      }
+    }
+  }
+
+  .common-navs {
+    .common-nav {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      float: left;
+      width: 10%;
+      height: 95px;
+      .nav-name {
+        font-size: 12px;
+        margin-top: 8px;
+        padding-bottom: 10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "name": "system-antd3.0",
+  "version": "1.0.0",
+  "private": true,
+  "homepage": "https://fwtcumt.github.io/system-antd3.0",
+  "dependencies": {
+    "@antv/g2plot": "^0.11.27",
+    "antd": "^3.26.6",
+    "axios": "^0.19.0",
+    "babel-plugin-import": "^1.12.2",
+    "cross-env": "^6.0.3",
+    "customize-cra": "^0.8.0",
+    "gh-pages": "^2.1.1",
+    "harmony-reflect": "^1.6.1",
+    "js-cookie": "^2.2.1",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "lodash": "^4.17.15",
+    "mockjs-x": "^1.0.1-beta5",
+    "react": "^16.11.0",
+    "react-app-rewired": "^2.1.4",
+    "react-avatar-editor": "^12.0.0-beta.0",
+    "react-dom": "^16.11.0",
+    "react-loadable": "^5.5.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.2.0"
+  },
+  "scripts": {
+    "start": "cross-env REACT_APP_ENV=dev react-app-rewired start",
+    "build:test": "cross-env REACT_APP_ENV=test react-app-rewired build",
+    "build": "cross-env REACT_APP_ENV=prod react-app-rewired build",
+    "deploy": "gh-pages -d build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

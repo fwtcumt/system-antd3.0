@@ -1,0 +1,95 @@
+.page-home {
+  height: 100%;
+  min-width: 1400px;
+
+  .home-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    font-size: 12px;
+    height: 50px;
+    line-height: 30px;
+    padding: 10px 50px;
+    .user-avatar {
+      display: inline-block;
+      vertical-align: middle;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      .ant-avatar {
+        vertical-align: initial;
+      }
+    }
+    .user-name {
+      display: inline-block;
+      margin-left: 8px;
+      font-weight: bolder;
+    }
+  }
+
+  .home-sider {
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+      line-height: 1;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      overflow: hidden;
+      .logo-icon {
+        height: 30px;
+        width: 30px;
+        font-size: 30px;
+        color: springgreen;
+        overflow: hidden;
+        .anticon {
+          vertical-align: top;
+        }
+        img {
+          vertical-align: top;
+        }
+      }
+      .logo-title {
+        font-size: 18px;
+        font-weight: bolder;
+        color: #fff;
+        padding-left: 4px;
+      }
+    }
+    .menu {
+      height: calc(100% - 50px);
+      overflow: auto;
+    }
+    .ant-layout-sider-trigger {
+      position: absolute;
+    }
+  }
+
+  .home-content {
+    display: flex;
+    background: #fff;
+    padding: 6px 0;
+    margin: 6px;
+    border-radius: 2px;
+    overflow: hidden;
+    .home-main {
+      flex: 1;
+      padding: 0 6px;
+      overflow: auto;
+    }
+  }
+
+  .home-footer {
+    padding: 0 50px 4px;
+    font-size: 12px;
+    text-align: center;
+    color: #999;
+  }
+}
+
+//控制折叠菜单的高度
+.ant-menu-submenu-popup {
+  max-height: 500px;
+  overflow: auto;
+}
