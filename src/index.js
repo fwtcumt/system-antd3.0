@@ -14,7 +14,7 @@ ReactDOM.render(
     locale={zhCN}
     getPopupContainer={node => {
       if (node) {
-        return node.parentElement;
+        return node.parentNode;
       }
       return document.body;
     }}
