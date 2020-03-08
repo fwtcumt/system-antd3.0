@@ -1,5 +1,5 @@
 ## 后台管理系统模板
-<a target="_blank" href="https://fwtcumt.github.io/system-antd3.0/">链接地址</a>
+[链接地址](https://fwtcumt.github.io/system-antd3.0/ "system-antd3.0")
 
 ```bash
   # 本地开发启动
