@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal, Form, Input, message } from 'antd';
-import WordsCountDown from 'components/WordsCountDown';
+import WordsCount from 'components/WordsCount';
 import http from 'utils/getFetch';
 
 const FromItem = Form.Item;
@@ -49,10 +49,10 @@ class RemarkModal extends React.Component {
         this.setState({ loading: true });
         http.post('sys/global/asia/remark', data)
         .then(() => {
-          this.setState({ loading: false });
           message.success('操作成功');
-          this.handleClose();
           onOk && onOk();
+          this.handleClose();
+          this.setState({ loading: false });
         })
         .catch(() => this.setState({ loading: false }));
       }
@@ -82,7 +82,7 @@ class RemarkModal extends React.Component {
             })(
               <Input.TextArea rows={6} placeholder="请输入备注信息" />
             )}
-            <WordsCountDown style={{ display: 'block' }} current={remark.length} total={100} />
+            <WordsCount style={{ display: 'block' }} current={remark.length} total={100} />
           </FromItem>
         </Form>
       </Modal>

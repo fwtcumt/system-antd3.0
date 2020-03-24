@@ -2,7 +2,7 @@ import pic_logo from 'assets/logo.png';
 
 export default {
   //系统名称
-  name: '人员管理系统',
+  name: '管理系统',
   //系统图标
   icon: {
     type: 'image', //图标类型，可取值:[icon/image]

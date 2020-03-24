@@ -51,14 +51,12 @@ class FileItem extends React.Component {
     const formData = new FormData();
 
     formData.append('file', file, fileItem.fileName);
+    this.setState({ status: 'uploading' });
 
-    // this.setState({ status: 'uploading' });
     // http.upload('/upload', formData, {
     //   cancelToken: c => this.cancelUpload = c,
     //   onUploadProgress: e => {
-    //     this.setState({
-    //       rate: `${(e.loaded / e.total * 100).toFixed(1)}%`
-    //     });
+    //     this.setState({ rate: `${(e.loaded / e.total * 100).toFixed(1)}%` });
     //   }
     // }).then(res => {
     //   delete fileItem.file;
@@ -71,8 +69,6 @@ class FileItem extends React.Component {
 
 
     //上传模拟
-    // return;
-    this.setState({ status: 'uploading' });
     this.timer = setInterval(() => {
       const { rate } = this.state;
       const newRate = parseInt(rate) + 10;
@@ -85,7 +81,7 @@ class FileItem extends React.Component {
         const statusArr = [{status: 'done', sucMsg: '上传完成'}, {status: 'error', errMsg: '上传失败'}];
         const redomIndex = Math.floor(Math.random() * 2);
         delete fileItem.file;
-        fileItem.fileUrl = redomIndex === 1 ? null : 'https://img.36krcdn.com/20191212/v2_90c4af2dce3a4ee9a507f96e15c4cece_img_jpg';
+        fileItem.fileUrl = redomIndex === 1 ? null : 'https://m1-1253159997.image.myqcloud.com/imageDir/4071b7d87d5cc21834829c8daaa48566.jpg';
         this.setState(statusArr[redomIndex]);
       }
     }, 300);

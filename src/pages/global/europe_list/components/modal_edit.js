@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal, Form, Input, Select, DatePicker, message } from 'antd';
-import WordsCountDown from 'components/WordsCountDown';
+import WordsCount from 'components/WordsCount';
 import locationSearch from 'utils/locationSearch';
 import http from 'utils/getFetch';
 
@@ -107,7 +107,7 @@ class EditModal extends React.Component {
               ]
             })(
               <Input placeholder="请输入人员名称"
-                addonAfter={<WordsCountDown current={name.length} total={50} />}
+                addonAfter={<WordsCount current={name.length} total={50} />}
               />
             )}
           </FromItem>
@@ -153,7 +153,7 @@ class EditModal extends React.Component {
             })(
               <Input.TextArea rows={6} placeholder="请输入备注信息" />
             )}
-            <WordsCountDown style={{ display: 'block' }} current={remark.length} total={100} />
+            <WordsCount style={{ display: 'block' }} current={remark.length} total={100} />
           </FromItem>
         </Form>
       </Modal>

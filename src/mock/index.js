@@ -11,3 +11,4 @@ import './menuMock';
 import './statMock';
 import './asiaListMock';
 import './asiaEditMock';
+import './asiaRemarkMock';

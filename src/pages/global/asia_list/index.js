@@ -7,7 +7,6 @@ import locationSearch from 'utils/locationSearch';
 import { getStore } from 'utils/handleStore';
 import system from 'config/system';
 import Filter from './components/filter';
-import EditModal from './components/modal_edit';
 import RemarkModal from './components/modal_remark';
 import TableBar from './components/table_bar';
 import columns from './columns';
@@ -26,8 +25,6 @@ class Page extends React.Component {
       pagination: system.pagination,
       selectedRowKeys: [],
       record: null,
-      //编辑框
-      showEditModal: false,
       //备注框
       showRemarkModal: false
     }
@@ -65,12 +62,9 @@ class Page extends React.Component {
   renderActionColumn = (_, record) => {
     return [
       permission.global_asia_mod &&
-      <Button key="1" type="link" size="small"
-        onClick={() => this.setState({
-          showEditModal: 'isMod',
-          record
-        })}
-      >编辑</Button>,
+      <Button key="1" type="link" size="small">
+        <Link to={`/home/global/asia/mod/${record.id}`}>编辑</Link>
+      </Button>,
       permission.global_asia_mod &&
       <Button key="2" type="link" size="small"
         onClick={() => this.setState({
@@ -83,11 +77,7 @@ class Page extends React.Component {
         onClick={() => Modal.error({
           title: '暂时不能删除'
         })}
-      >删除</Button>,
-      permission.global_asia_mod &&
-      <Button key="4" type="link" size="small">
-        <Link to={`/home/global/asia/mod/${record.id}`}>编辑[p]</Link>
-      </Button>,
+      >删除</Button>
     ];
   }
 
@@ -112,12 +102,8 @@ class Page extends React.Component {
           <div>
             {permission.global_asia_add &&
             <Button type="primary" icon="plus"
-              onClick={() => this.setState({ showEditModal: 'isNew' })}
-            >新建</Button>}
-            {permission.global_asia_add &&
-            <Button type="primary" icon="plus"
               onClick={() => this.props.history.push('/home/global/asia/add')}
-            >新建[p]</Button>}
+            >新建</Button>}
           </div>
         </div>
         <div className="flex-filter">
@@ -139,14 +125,6 @@ class Page extends React.Component {
             onChange={this.handlePaginationChange}
           />
         </div>
-        {/* 编辑框 */}
-        <EditModal
-          countryList={this.state.countryList}
-          visible={this.state.showEditModal}
-          record={record}
-          onClose={() => this.setState({ showEditModal: false })}
-          onOk={this.getTableData}
-        />
         {/* 备注框 */}
         <RemarkModal
           visible={this.state.showRemarkModal}

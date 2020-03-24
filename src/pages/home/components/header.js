@@ -12,7 +12,7 @@ function HomeHeader() {
       <div />
       <div>
         <div className="user-avatar">
-          <Avatar size="small" src="https://img.36krcdn.com/20191212/v2_90c4af2dce3a4ee9a507f96e15c4cece_img_jpg" />
+          <Avatar size="small" src="https://p3.pstatp.com/list/240x240/pgc-image/a345b89725494e7cafdf4cf904d01e32" />
         </div>
         <span className="user-name">地之鸿</span>
         <Divider type="vertical" />

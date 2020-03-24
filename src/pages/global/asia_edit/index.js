@@ -1,7 +1,7 @@
 import React from 'react';
-import { Breadcrumb, Button, message, Form, Input, Select, DatePicker } from 'antd';
+import { Breadcrumb, Button, Modal, Form, Input, Select, DatePicker } from 'antd';
 import moment from 'moment';
-import WordsCountDown from 'components/WordsCountDown';
+import WordsCount from 'components/WordsCount';
 import UploadFile from 'components/UploadFile';
 import http from 'utils/getFetch';
 
@@ -65,10 +65,10 @@ class Page extends React.Component {
       effectRange: [moment('2017-11-10'), moment('2019-12-10')],
       maps: [
         {
-          fileName: "gfdwew.jpg",
-          fileUrl: "https://img.36krcdn.com/20191219/v2_9e11174e71b944e88a0165d06c50fefb_img_jpg",
-          filePath: "/20191219/v2_9e11174e71b944e88a0165d06c50fefb_img_jpg",
-          mark: "gfdwew.jpg1576732762828"
+          fileName: "中国天兵天将来啦.jpg",
+          fileUrl: "http://p1.pstatp.com/large/pgc-image/260341bcf19e480c8e7c15ed783e1d1d",
+          filePath: "/large/pgc-image/260341bcf19e480c8e7c15ed783e1d1d",
+          mark: "260341bcf19e480c8e7c15ed783e1d1d"
         }
       ],
       remark: '这个人很热情'
@@ -85,26 +85,30 @@ class Page extends React.Component {
         const [effectStart, effectEnd] = values.effectRange || [];
         const data = {
           ...values,
-          id: id ? id : '',
+          id,
           findsUnit: values.findsAmount ? findsUnit : '',
           signTime: values.signTime ? values.signTime.valueOf() : '',
           effectStart: effectStart ? effectStart.valueOf() : '',
           effectEnd: effectEnd ? effectEnd.valueOf() : '',
           effectRange: ''
         };
-        const apiUrl = id ? 'sys/global/asia/mod' : 'sys/global/asia/add';
 
         this.setState({ loading: true });
-        http.post(apiUrl, data)
+        http.post(`sys/global/asia/${id ? 'mod' : 'add'}`, data)
         .then(() => {
           this.setState({ loading: false });
-          message.success('操作成功');
-          //新建后跳转回列表首页
-          if (!id) {
-            setTimeout(() => {
-              this.props.history.push('/home/global/asia');
-            }, 1500);
-          }
+          Modal.confirm({
+            content: `${id ? '修改' : '新建'}成功，是否返回列表?`,
+            okText: '好',
+            cancelText: '不',
+            onOk: () => {
+              if (id) {
+                this.props.history.goBack();
+              } else {
+                this.props.history.push('/home/global/asia');
+              }
+            }
+          });
         })
         .catch(() => this.setState({ loading: false }));
       }
@@ -126,11 +130,11 @@ class Page extends React.Component {
             <Breadcrumb.Item >{id ? '编辑' : '新建'}</Breadcrumb.Item>
           </Breadcrumb>
           <div>
-            <Button type="primary" icon="smile"
+            <Button type="primary" icon="save"
               loading={loading}
               onClick={this.handleSubmit}
             >保存</Button>
-            <Button ghost type="primary" icon="meh"
+            <Button ghost type="primary" icon="rollback"
               disabled={loading}
               onClick={this.props.history.goBack}
             >取消</Button>
@@ -146,7 +150,7 @@ class Page extends React.Component {
                 ]
               })(
                 <Input placeholder="请输入人员名称"
-                  addonAfter={<WordsCountDown current={name.length} total={50} />}
+                  addonAfter={<WordsCount current={name.length} total={50} />}
                 />
               )}
             </FromItem>
@@ -167,8 +171,8 @@ class Page extends React.Component {
                       value={findsUnit}
                       onChange={v => this.setState({ findsUnit: v })}
                     >
-                      <Option value={1}>元</Option>
-                      <Option value={2}>美元</Option>
+                      <Option value={1}>元(¥)</Option>
+                      <Option value={2}>美元($)</Option>
                     </Select>
                   }
                 />
@@ -190,7 +194,7 @@ class Page extends React.Component {
                   fileType="image"
                   addBtnType="dragger"
                   accept="image/*,.jpg,.jpeg,.png,.gif"
-                  limit={{ width: 500, height: 200 }}
+                  limit={{ width: 500, height: 320 }}
                   maxLength={3}
                   allowCrop
                 />
@@ -204,7 +208,7 @@ class Page extends React.Component {
               })(
                 <Input.TextArea rows={6} placeholder="请输入备注信息" />
               )}
-              <WordsCountDown style={{ display: 'block' }} current={remark.length} total={100} />
+              <WordsCount style={{ display: 'block' }} current={remark.length} total={100} />
             </FromItem>
           </Form>
         </div>

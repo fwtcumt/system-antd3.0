@@ -2,7 +2,6 @@ export default [
   {
     key: '0',
     width: 100,
-    fixed: 'left',
     title: '人员姓名',
     dataIndex: 'name'
   },
@@ -44,7 +43,7 @@ export default [
   },
   {
     key: '4',
-    width: 100,
+    width: 140,
     fixed: 'right',
     title: '操作'
   }
