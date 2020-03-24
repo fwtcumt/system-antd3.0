@@ -63,10 +63,17 @@ class Page extends React.Component {
       findsAmount: '5000亿',
       signTime: moment('2016-03-18'),
       effectRange: [moment('2017-11-10'), moment('2019-12-10')],
-      maps: [
+      numberPics: [
         {
           fileName: "中国天兵天将来啦.jpg",
           fileUrl: "http://p1.pstatp.com/large/pgc-image/260341bcf19e480c8e7c15ed783e1d1d",
+          mark: "260341bcf19e480c8e7c15ed783e1d1d"
+        }
+      ],
+      numberVideos: [
+        {
+          fileName: "李嘉诚卖豪宅刺痛了谁.mp4",
+          fileUrl: "https://videos.36krcdn.com/20200324/v2_1585020734179_video_mp4_v3",
           mark: "260341bcf19e480c8e7c15ed783e1d1d"
         }
       ],
@@ -188,14 +195,25 @@ class Page extends React.Component {
               )}
             </FromItem>
             <FromItem label="人员配图">
-              {getFieldDecorator('maps')(
+              {getFieldDecorator('numberPics')(
                 <UploadFile
                   fileType="image"
-                  addBtnType="dragger"
+                  layout="square"
                   accept="image/*,.jpg,.jpeg,.png,.gif"
                   limit={{ width: 500, height: 320 }}
                   maxLength={3}
                   allowCrop
+                />
+              )}
+            </FromItem>
+            <FromItem label="人员视频">
+              {getFieldDecorator('numberVideos')(
+                <UploadFile
+                  fileType="video"
+                  addBtnType="dragger"
+                  accept="video/*"
+                  limit={{ size: 1024 * 1024 }}
+                  maxLength={3}
                 />
               )}
             </FromItem>

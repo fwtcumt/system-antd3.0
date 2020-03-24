@@ -81,7 +81,9 @@ class FileItem extends React.Component {
         const statusArr = [{status: 'done', sucMsg: '上传完成'}, {status: 'error', errMsg: '上传失败'}];
         const redomIndex = Math.floor(Math.random() * 2);
         delete fileItem.file;
-        fileItem.fileUrl = redomIndex === 1 ? null : 'https://m1-1253159997.image.myqcloud.com/imageDir/4071b7d87d5cc21834829c8daaa48566.jpg';
+        if (redomIndex === 0) {
+          fileItem.fileUrl = 'https://m1-1253159997.image.myqcloud.com/imageDir/4071b7d87d5cc21834829c8daaa48566.jpg';
+        }
         this.setState(statusArr[redomIndex]);
       }
     }, 300);
@@ -91,7 +93,7 @@ class FileItem extends React.Component {
   renderFileBtns = () => {
     const { status } = this.state;
     const { index, layout, fileType, limit = {}, allowEdit, onDelete, onEdit } = this.props;
-    const { fileUrl, downloadUrl, originUrl } = this.props.file;
+    const { fileName, fileUrl, downloadUrl, originUrl } = this.props.file;
     const limitWidth = limit.width;
     const limitHeight = limit.height;
     //按钮控制
@@ -119,7 +121,7 @@ class FileItem extends React.Component {
         </div>}
         {showDownloadBtn &&
         <div className="file-btn">
-          <a href={downloadUrl || null} download>
+          <a href={downloadUrl || null} download={fileName}>
             <Icon type="download" />
           </a>
         </div>}
