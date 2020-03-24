@@ -7,8 +7,8 @@ Mock.mock(/sys\/global\/asia\/remark/, ({body}) => {
   console.log(param);
   
   return Mock.mock({
-    'code': 10,
-    'message': '你怎么如此逗呢',
+    'status': 301,
+    'message': '登录失败，请重新登录',
     'data': {}
   });
 });

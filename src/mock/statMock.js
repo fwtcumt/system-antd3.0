@@ -7,7 +7,7 @@ Mock.mock(/sys\/stat/, () => {
   const radomIndex = Math.floor(Math.random() * 6);
   
   return Mock.mock({
-    'code': 0,
+    'status': 200,
     'message': '',
     'data': {
       'tabList|4': [{

@@ -11,7 +11,7 @@ Mock.mock(/sys\/global\/asia\/list/, ({body}) => {
   console.log(param);
   
   return Mock.mock({
-    'code': 0,
+    'status': 200,
     'message': '*=_=*',
     'data': {
       'page': {

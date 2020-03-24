@@ -4,7 +4,7 @@ Mock.XHR.prototype.withCredentials = true;
 
 Mock.mock(/sys\/permiss\/list/, () => {
   return {
-    code: 0,
+    status: 200,
     message: '',
     data: {
       global_asia: true,

@@ -7,7 +7,7 @@ Mock.mock(/sys\/global\/asia\/[add|mod]/, ({body}) => {
   console.log(param);
   
   return Mock.mock({
-    'code': 0,
+    'status': 200,
     'message': '',
     'data': {}
   });

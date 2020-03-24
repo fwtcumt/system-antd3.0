@@ -23,15 +23,15 @@ const onFetchSuccess = (res, resolve, reject) => {
   }
 
   //bug: 业务服务判断
-  const code = res.data.code;
+  const status = res.data.status;
 
   //业务请求-正常
-  if (code === 0) {
+  if (status === 200) {
     return resolve(res.data.data);
   }
 
   //业务请求-未登录
-  if (code === 99) {
+  if (status === 301) {
     Modal.destroyAll();
     Modal.confirm({
       title: '提示',
