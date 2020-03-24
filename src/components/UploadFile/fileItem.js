@@ -25,23 +25,23 @@ class FileItem extends React.Component {
         errMsg: fileItem.errMsg
       });
     } else if (file) {
-      //检测到有新文件，上传之
+      //检测到有合法的新文件，上传之
       this.startUpload(file);
     }
   }
 
   //取消上传进程
   handleCancel = () => {
-    // this.cancelUpload && this.cancelUpload('取消上传');
+    // this.cancelUpload && this.cancelUpload('上传已取消');
 
     //模拟终止
-    // return;
     const fileItem = this.props.file;
     delete fileItem.file;
     clearInterval(this.timer);
+    this.timer = null;
     this.setState({
       status: 'error',
-      errMsg: '已取消'
+      errMsg: '上传已取消'
     });
   }
 

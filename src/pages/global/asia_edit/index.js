@@ -67,7 +67,6 @@ class Page extends React.Component {
         {
           fileName: "中国天兵天将来啦.jpg",
           fileUrl: "http://p1.pstatp.com/large/pgc-image/260341bcf19e480c8e7c15ed783e1d1d",
-          filePath: "/large/pgc-image/260341bcf19e480c8e7c15ed783e1d1d",
           mark: "260341bcf19e480c8e7c15ed783e1d1d"
         }
       ],

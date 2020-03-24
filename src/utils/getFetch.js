@@ -52,7 +52,7 @@ export default {
       config.cancelToken = new CancelToken(config.cancelToken);
     }
 
-    const cleanData = handleObject.clean(data);
+    const cleanData = handleObject.clean(data, true);
 
     return new Promise((resolve, reject) => {
       axios.get(url, { params: cleanData, ...config })
@@ -66,7 +66,7 @@ export default {
       config.cancelToken = new CancelToken(config.cancelToken);
     }
 
-    const cleanData = handleObject.clean(data);
+    const cleanData = handleObject.clean(data, true);
 
     return new Promise((resolve, reject) => {
       axios.post(url, { param: cleanData }, config)
