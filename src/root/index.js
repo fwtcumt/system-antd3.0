@@ -6,7 +6,7 @@ import './index.less';
 class Root extends React.PureComponent {
   render() {
     return (
-      <Router>
+      <Router basename="/system-antd3.0">
         {getRoutes('/')}
       </Router>
     );
