@@ -1,5 +1,4 @@
 ## 后台管理系统模板
-[链接地址](https://fwtcumt.github.io/system-antd3.0/ "system-antd3.0")
 
 ```bash
   # 本地开发启动
